@@ -1,0 +1,19 @@
+version: "3.9"
+services: 
+  serviceone: # name of the service
+    container_name: doctorserv # the container name in which the image will be loaded
+    ports:  # port from local mapped with the container 
+        - 9010:80
+    build: serviceone     # the folder from where the the dockerfile is read
+  
+  servicetwo:
+    container_name: patientserv
+    ports: 
+        - 9011:80
+    build: servicetwo
+
+  doctorpatientclient:
+     container_name: :hospitalclientserv
+     ports: 
+        - 9012:80
+     build: doctorpatientclient
